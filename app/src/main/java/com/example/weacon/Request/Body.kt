@@ -37,7 +37,7 @@ data class Fact(
     val temp: Int,
     val feels_Like: Int,
     val condition: String,
-    val wind_speed: Int,
+    val wind_speed: Double,
     val wind_gust: Double,
     val pressure_pa: Int,
     val daytime: String,
@@ -59,11 +59,11 @@ data class Parts(
 )
 
 data class Day(
-    val temp_avg: Int,
-    val feels_like: Int,
+    val temp_avg: Double,
+    val feels_like: Double,
     val condition: String,
     val wind_speed: Double,
     val wind_gust: Double,
     val pressure_pa: Int,
-    val cloudness: Int
+    val cloudness: Double
 )
