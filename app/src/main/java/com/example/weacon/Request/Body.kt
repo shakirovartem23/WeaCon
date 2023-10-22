@@ -42,7 +42,7 @@ data class Fact(
     val pressure_pa: Int,
     val daytime: String,
     val season: String,
-    val cloudness: Int
+    val cloudness: Double
 )
 
 data class Forecast(
