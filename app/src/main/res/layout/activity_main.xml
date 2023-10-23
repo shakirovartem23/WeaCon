@@ -6,24 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".ui.WeatherActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        >
+
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapseToolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            app:title="Weather"
+            app:title="Yoshkar-Ola"
+            app:expandedTitleGravity="center"
+            app:collapsedTitleGravity="top|start"
             app:collapsedTitleTextColor="@color/black"
             app:expandedTitleTextColor="@color/black"
-            app:expandedTitleTextAppearance="@style/Theme.WeaCon"
+            app:expandedTitleTextAppearance="@style/Text_Title"
 
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
 
@@ -37,18 +46,10 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="280dp"
                     app:cardElevation="100dp"
                     app:cardBackgroundColor="#52b9db"
                     app:cardCornerRadius="30dp">
-
-                    <pl.droidsonroids.gif.GifImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
-                        android:layout_gravity="bottom"
-                        android:src="@drawable/_db5b2ce7ba03746b6b68d210941ddbd__2_"
-                        android:background="@color/white"/>
 
                 </androidx.cardview.widget.CardView>
 
@@ -56,6 +57,7 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar2"
+                app:title="Artem"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:background="#52b9db"
@@ -64,5 +66,35 @@
                 />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="50dp" >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:layout_gravity="top"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="-10dp"
+            android:text="---"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:gravity="center|top"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

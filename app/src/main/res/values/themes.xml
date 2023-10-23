@@ -19,6 +19,10 @@
         <item name="android:navigationBarColor">
             @android:color/transparent
         </item>
+
+        <item name="android:fontFamily">
+            @font/aclonica
+        </item>
     </style>
 
     <style name="Theme.WeaCon" parent="Base.Theme.WeaCon" />
