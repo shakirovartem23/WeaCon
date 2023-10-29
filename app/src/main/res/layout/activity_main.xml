@@ -4,97 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.WeatherActivity">
+    tools:context=".ui.WeatherActivity"
+    android:background="#52b9db">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
+        android:padding="15dp"
+        android:orientation="vertical"
         >
 
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_marginTop="-130dp"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/_db5b2ce7ba03746b6b68d210941ddbd" />
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapseToolBar"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginTop="-235dp"
+            android:text="Йошкар-Ола"
+            android:textAppearance="@style/Text_Title" />
 
-            app:title="Yoshkar-Ola"
-            app:expandedTitleGravity="center"
-            app:collapsedTitleGravity="top|start"
-            app:collapsedTitleTextColor="@color/black"
-            app:expandedTitleTextColor="@color/black"
-            app:expandedTitleTextAppearance="@style/Text_Title"
 
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-            android:background="@color/white"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" >
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="125dp"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rectangle_simple"
+            >
 
             <LinearLayout
+                android:id="@+id/linear"
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
+                android:layout_height="match_parent"
 
-                <androidx.cardview.widget.CardView
+                android:layout_marginTop="100dp"
+                android:orientation="vertical">
+
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="280dp"
-                    app:cardElevation="100dp"
-                    app:cardBackgroundColor="#52b9db"
-                    app:cardCornerRadius="30dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/free_icon_minus_sign_of_a_line_in_horizontal_position_32320"/>
 
-                </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1500dp"
+                    android:src="@drawable/free_icon_minus_sign_of_a_line_in_horizontal_position_32320"/>
+
 
             </LinearLayout>
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar2"
-                app:title="Artem"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:background="#52b9db"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                />
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/appBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:cardCornerRadius="50dp" >
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?selectableItemBackground"
-            android:layout_gravity="top"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginTop="-10dp"
-            android:text="---"
-            android:textColor="@color/black"
-            android:textSize="40dp"
-            android:gravity="center|top"
-            />
-
-    </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
