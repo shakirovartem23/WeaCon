@@ -34,6 +34,9 @@ android {
 
 dependencies {
 
+    //DotsIndicator
+    implementation 'com.tbuonomo:dotsindicator:5.0'
+
     //Gifs
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
 
