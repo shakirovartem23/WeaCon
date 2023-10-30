@@ -7,38 +7,66 @@
     tools:context=".ui.WeatherActivity"
     android:background="#52b9db">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         >
 
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gifImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="400dp"
-            android:layout_marginTop="-130dp"
-            android:layout_marginEnd="25dp"
-            android:src="@drawable/_db5b2ce7ba03746b6b68d210941ddbd" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapseToolBar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|start"
-            android:layout_marginTop="-235dp"
-            android:text="Йошкар-Ола"
-            android:textAppearance="@style/Text_Title" />
 
+            app:title="Йошкар-Ола"
+            app:expandedTitleGravity="bottom|start"
+            app:collapsedTitleGravity="center_horizontal|start"
+            app:collapsedTitleTextAppearance="@style/Text_Import"
+            app:expandedTitleTextAppearance="@style/Text_Title"
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+
+            android:background="#52b9db"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/gifImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="-80dp"
+                    android:src="@drawable/_db5b2ce7ba03746b6b68d210941ddbd" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar2"
+                app:title="Artem"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="#52b9db"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="125dp"
-        >
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -57,46 +85,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="25dp"
-                            android:orientation="vertical"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:fontFamily="@font/barrio"
-                                android:text="30"
-                                android:textColor="@color/black"
-                                android:textSize="60dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-
-                                android:fontFamily="@font/barrio"
-                                android:text="Октября"
-                                android:textColor="@color/black"
-                                android:textSize="45dp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/viewPager"
-                        android:layout_gravity="center"
+                        android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="200dp">
 
                     </androidx.viewpager2.widget.ViewPager2>
 
@@ -105,9 +101,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:splitMotionEvents="true"
+                        android:clipToOutline="false"
+
+
                         app:dotsColor="#8D917A"
-                        app:dotsSize="16dp"
-                        app:dotsSpacing="4dp"
+                        app:dotsSize="5dp"
+                        app:dotsSpacing="2dp"
                         app:dotsWidthFactor="2.5"
                         app:selectedDotColor="#808080"
                         />
