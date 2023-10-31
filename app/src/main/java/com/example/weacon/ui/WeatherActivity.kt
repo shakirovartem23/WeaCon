@@ -1,8 +1,10 @@
 package com.example.weacon.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.weacon.R
@@ -77,6 +79,65 @@ class WeatherActivity : AppCompatActivity() {
 
         GlobalScope.launch(Dispatchers.Main){
             val weather = loadWeather(56.37, 47.53)
+            Log.d(TAG, weather.toString())
+
+            //Other
+            val textC = findViewById<TextView>(R.id.textC)
+            val textFeels = findViewById<TextView>(R.id.feels_like)
+            val textOvercast = findViewById<TextView>(R.id.textOvercast)
+            val textDate = findViewById<TextView>(R.id.textDate)
+            val textSun = findViewById<TextView>(R.id.textSun)
+
+            //Morning
+            val textCMorning = findViewById<TextView>(R.id.textCMorning)
+            val textConMorning = findViewById<TextView>(R.id.textConMorning)
+            val textWindMorning = findViewById<TextView>(R.id.textWindMorning)
+            val textPaMorning = findViewById<TextView>(R.id.textPaMorning)
+            val textCloudMorning = findViewById<TextView>(R.id.textCloudMorning)
+
+            //Day
+            val textCDay = findViewById<TextView>(R.id.textCDay)
+            val textConDay = findViewById<TextView>(R.id.textConDay)
+            val textWindDay = findViewById<TextView>(R.id.textWindDay)
+            val textPaDay = findViewById<TextView>(R.id.textPaDay)
+            val textCloudDay = findViewById<TextView>(R.id.textCloudDay)
+
+            //Evening
+            val textCEvening = findViewById<TextView>(R.id.textCEvening)
+            val textConEvening = findViewById<TextView>(R.id.textConEvening)
+            val textWindEvening = findViewById<TextView>(R.id.textWindEvening)
+            val textPaEvening = findViewById<TextView>(R.id.textPaEvening)
+            val textCloudEvening = findViewById<TextView>(R.id.textCloudEvening)
+
+            if(weather!=null){
+                //Other
+                textC.text = weather.fact.temp.toString()
+                textFeels.text = weather.fact.feels_Like.toString()
+                textOvercast.text = weather.fact.condition
+                textDate.text = (weather.now_dt.substring(8..9)+"."+weather.now_dt.substring(5..6))
+                textSun.text = (weather.forecasts.first().sunrise+" ~ "+weather.forecasts.first().sunset)
+
+                //Morning
+                textCMorning.text = weather.forecasts.first().parts.morning.temp_avg.toInt().toString()
+                textConMorning.text = weather.forecasts.first().parts.morning.condition
+                textWindMorning.text = weather.forecasts.first().parts.morning.wind_speed.toInt().toString()
+                textPaMorning.text = weather.forecasts.first().parts.morning.pressure_pa.toString()
+                textCloudMorning.text = weather.forecasts.first().parts.morning.cloudness.toInt().toString()
+
+                //Day
+                textCDay.text = weather.forecasts.first().parts.day.temp_avg.toInt().toString()
+                textConDay.text = weather.forecasts.first().parts.day.condition
+                textWindDay.text = weather.forecasts.first().parts.day.wind_speed.toInt().toString()
+                textPaDay.text = weather.forecasts.first().parts.day.pressure_pa.toString()
+                textCloudDay.text = weather.forecasts.first().parts.day.cloudness.toInt().toString()
+
+                //Evening
+                textCEvening.text = weather.forecasts.first().parts.evening.temp_avg.toInt().toString()
+                textConEvening.text = weather.forecasts.first().parts.evening.condition
+                textWindEvening.text = weather.forecasts.first().parts.evening.wind_speed.toInt().toString()
+                textPaEvening.text = weather.forecasts.first().parts.evening.pressure_pa.toString()
+                textCloudEvening.text = weather.forecasts.first().parts.evening.cloudness.toInt().toString()
+            }
         }
 
     }

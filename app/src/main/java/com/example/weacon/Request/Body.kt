@@ -11,7 +11,8 @@ interface WeatherRequest {
     suspend fun weatherRequest(
         @Query("lat") lat: String,
         @Query("lon") lon: String,
-        @Query("lang") lang: String  = "ru_RU"
+        @Query("lang") lang: String  = "ru_RU",
+        @Query("extra") extra: String = "true"
     ): WeatherObject
 }
 
@@ -19,7 +20,7 @@ data class WeatherObject(
     val now_dt: String,
     val info: Info,
     val fact: Fact,
-    val forecast: List<Forecast>
+    val forecasts: List<Forecast>
 )
 
 data class Info(
