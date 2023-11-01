@@ -41,10 +41,10 @@
 
                 <pl.droidsonroids.gif.GifImageView
                     android:id="@+id/gifImageView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="-80dp"
+                    android:layout_marginBottom="-90dp"
                     android:src="@drawable/_db5b2ce7ba03746b6b68d210941ddbd" />
 
             </LinearLayout>
@@ -207,19 +207,13 @@
                             android:orientation="horizontal"
                             >
 
-                            <com.google.android.material.button.MaterialButton
-                                android:layout_width="40dp"
-                                android:layout_height="50dp"
-                                android:layout_marginEnd="-16dp"
-                                android:drawableTint="@color/black"
-                                android:background="?selectableItemBackground"/>
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="50dp"
                                 android:layout_gravity="center_vertical"
                                 android:rotation="270"
-                                android:text="M"
+                                android:layout_marginStart="5dp"
+                                android:text="MOR"
                                 android:textAppearance="@style/Text_Title"
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
@@ -395,19 +389,13 @@
                             android:orientation="horizontal"
                             >
 
-                            <com.google.android.material.button.MaterialButton
-                                android:layout_width="40dp"
-                                android:layout_height="50dp"
-                                android:layout_marginEnd="-16dp"
-                                android:drawableTint="@color/black"
-                                android:background="?selectableItemBackground"/>
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="50dp"
                                 android:layout_gravity="center_vertical"
                                 android:rotation="270"
-                                android:text="D"
+                                android:layout_marginStart="5dp"
+                                android:text="DAY"
                                 android:textAppearance="@style/Text_Title"
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
@@ -583,19 +571,13 @@
                             android:orientation="horizontal"
                             >
 
-                            <com.google.android.material.button.MaterialButton
-                                android:layout_width="40dp"
-                                android:layout_height="50dp"
-                                android:layout_marginEnd="-16dp"
-                                android:drawableTint="@color/black"
-                                android:background="?selectableItemBackground"/>
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="50dp"
                                 android:layout_gravity="center_vertical"
                                 android:rotation="270"
-                                android:text="E"
+                                android:layout_marginStart="5dp"
+                                android:text="EVE"
                                 android:textAppearance="@style/Text_Title"
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
@@ -759,10 +741,19 @@
 
                     </HorizontalScrollView>
 
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:progressDrawable="@drawable/progress_bar"
+                        android:progress="50"
+                        />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
+                        android:orientation="horizontal"
                         android:layout_gravity="center_horizontal">
 
                         <TextView
@@ -800,6 +791,26 @@
 
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:text="Forecast\n for the next \nseven day :"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/material_dynamic_neutral_variant20"
+                        tools:targetApi="s" />
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="50dp"
+                        />
+
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/viewPager"
                         android:layout_gravity="center_horizontal"
@@ -817,6 +828,7 @@
                         android:splitMotionEvents="true"
                         android:clipToOutline="false"
 
+                        android:layout_marginBottom="50dp"
 
                         app:dotsColor="#8D917A"
                         app:dotsSize="5dp"
@@ -829,27 +841,45 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Developed by Artem Shakirov"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/material_dynamic_primary10"
-                        android:textSize="10dp"
-                        android:textStyle="bold"
-                        android:layout_margin="5dp"
-                        />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:text="github.com/shakirovartem23/WeaCon"
-                        android:gravity="center_horizontal|bottom"
-                        android:textColor="@color/material_dynamic_neutral30"
-                        android:textSize="10dp"
-                        android:textStyle="bold"
-                        android:layout_margin="5dp"
-                        />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Developed by Artem Shakirov"
+                            android:gravity="center_horizontal|top"
+                            android:textColor="@color/material_dynamic_primary10"
+                            android:textSize="10dp"
+                            android:textStyle="bold"
+                            android:layout_margin="5dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:text="github.com/shakirovartem23/WeaCon"
+                            android:gravity="center"
+                            android:textColor="@color/material_dynamic_neutral30"
+                            android:textSize="10dp"
+                            android:textStyle="bold"
+                            android:layout_margin="5dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:text="Made based on\napi.weather.yandex.ru"
+                            android:gravity="center_horizontal|bottom"
+                            android:textColor="@color/material_dynamic_neutral60"
+                            android:textSize="10dp"
+                            android:textStyle="bold"
+                            android:layout_margin="5dp"
+                            />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
