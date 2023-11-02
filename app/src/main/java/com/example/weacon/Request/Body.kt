@@ -36,7 +36,7 @@ data class TZInfo(
 
 data class Fact(
     val temp: Int,
-    val feels_Like: Int,
+    val feels_like: Int,
     val condition: String,
     val wind_speed: Double,
     val wind_gust: Double,
