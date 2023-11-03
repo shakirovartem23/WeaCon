@@ -1,8 +1,15 @@
 package com.example.weacon.ui
 
+import android.Manifest
+import android.app.AlarmManager
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.ConnectivityManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,9 +17,13 @@ import android.view.WindowManager
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.getSystemService
 import androidx.viewpager2.widget.ViewPager2
+import com.example.weacon.Alarm_Manager.AlarmReceiver
 import com.example.weacon.R
 import com.example.weacon.Request.loadWeather
 import com.example.weacon.viewPager.ViewPageAdapter
@@ -60,6 +71,15 @@ class WeatherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
 
+        val alarm = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this@WeatherActivity, AlarmReceiver::class.java)
+        val pi = PendingIntent.getBroadcast(
+            this@WeatherActivity,
+            0,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE
+        )
+
         val pager = findViewById<ViewPager2>(R.id.viewPager)
         pager.adapter = ViewPageAdapter(
             listOf(
@@ -100,6 +120,24 @@ class WeatherActivity : AppCompatActivity() {
 
         val dots = findViewById<DotsIndicator>(R.id.dots)
         dots.attachTo(pager)
+
+        val RPLauncher = registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ){isGranted: Boolean ->
+            if(isGranted){
+                alarm.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 8*60*60*1000, pi)
+            } else{
+            }
+        }
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            if(ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED){
+            } else if(shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)){
+
+            } else{
+                RPLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+        }
 
 
         //StatusBar transparent
