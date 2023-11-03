@@ -46,7 +46,7 @@ fun hasConnection(context: Context): Boolean {
 fun isProgress(now: String, start: String, end: String): Int{
     val start = start.substring(0..1).toInt()*60+start.substring(3..4).toInt()
     val end = end.substring(0..1).toInt()*60+end.substring(3..4).toInt()
-    val now = now.substring(0..1).toInt()*60+now.substring(3..4).toInt()
+    val now = now.substring(0..1).toInt()*60+now.substring(2..3).toInt()
     val all = (end-start).toDouble()
     return ((now-start)/(all/100)).toInt()
 }
@@ -120,17 +120,14 @@ class WeatherActivity : AppCompatActivity() {
 
                 val progressBar = findViewById<ProgressBar>(R.id.progressBar)
                 val isProgress = isProgress(
-                    (weather!!
+                    ((weather!!
                         .now_dt
                         .substring(11..12)
                         .toInt()+3)
                         .toString()+
                             weather!!
                                 .now_dt
-                                .substring(13..14)+
-                            weather!!
-                                .now_dt
-                                .substring(15..16),
+                                .substring(14..15)).padStart(4, '0'),
                     weather.forecasts.first().sunrise,
                     weather.forecasts.first().sunset
                 )
