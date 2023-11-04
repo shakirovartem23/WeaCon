@@ -80,6 +80,7 @@ class WeatherActivity : AppCompatActivity() {
             PendingIntent.FLAG_IMMUTABLE
         )
 
+        val gifImage = findViewById<GifImageView>(R.id.gifImageView)
         val pager = findViewById<ViewPager2>(R.id.viewPager)
         pager.adapter = ViewPageAdapter(
             listOf(
@@ -171,25 +172,24 @@ class WeatherActivity : AppCompatActivity() {
                 )
                 progressBar.progress = isProgress
 
-                val gifImage = findViewById<GifImageView>(R.id.gifImageView)
                 val conditionNow = weather.fact.condition
                 val conViewMod = mapOf(
-                    "clear" to R.drawable.giphy__1_,
-                    "partly-cloudy" to R.drawable.giphy__2_,
-                    "cloudy" to R.drawable.giphy__3_,
-                    "overcast" to R.drawable.giphy__3_,
-                    "light-rain" to R.drawable.giphy__5_,
-                    "rain" to R.drawable.giphy__5_,
-                    "heavy-rain" to R.drawable.giphy__6_,
-                    "showers" to R.drawable.giphy__7_,
-                    "wet-snow" to R.drawable.giphy__8_,
+                    "clear" to R.drawable.sonne,
+                    "partly-cloudy" to R.drawable.blue_clouds_clouds,
+                    "cloudy" to R.drawable.blue_clouds_clouds,
+                    "overcast" to R.drawable.giphy__8_,
+                    "light-rain" to R.drawable.cloudy_raining,
+                    "rain" to R.drawable.cloudy_raining,
+                    "heavy-rain" to R.drawable.cloudy_raining,
+                    "showers" to R.drawable.cloudy_raining,
+                    "wet-snow" to R.drawable.winter_snowman,
                     "light-snow" to R.drawable.giphy__8_,
-                    "snow" to R.drawable.giphy__9_,
-                    "snow-showers" to R.drawable.giphy__9_,
+                    "snow" to R.drawable.winter_snowman,
+                    "snow-showers" to R.drawable.winter_snowman,
                     "hail" to R.drawable._db5b2ce7ba03746b6b68d210941ddbd,
-                    "thunderstorm" to R.drawable._db5b2ce7ba03746b6b68d210941ddbd,
-                    "thunderstorm-with-rain" to R.drawable._db5b2ce7ba03746b6b68d210941ddbd,
-                    "thunderstorm-with-hail" to R.drawable._db5b2ce7ba03746b6b68d210941ddbd,
+                    "thunderstorm" to R.drawable.positive_hujan,
+                    "thunderstorm-with-rain" to R.drawable.positive_hujan,
+                    "thunderstorm-with-hail" to R.drawable.positive_hujan,
                 )
 
                 gifImage.setBackgroundResource(conViewMod[conditionNow]!!)
@@ -347,6 +347,7 @@ class WeatherActivity : AppCompatActivity() {
             }
         } else{
             Toast.makeText(this, "No Internet Connection!", Toast.LENGTH_LONG).show()
+            gifImage.setBackgroundResource(R.drawable.illopop_illo)
         }
 
     }
