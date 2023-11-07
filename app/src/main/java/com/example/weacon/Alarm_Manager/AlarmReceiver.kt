@@ -35,7 +35,7 @@ class AlarmReceiver: BroadcastReceiver() {
             .setContentText("Weather changes. Just take a look ...")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setVibrate(longArrayOf(100, 200, 300, 400, 500))
-            .setAutoCancel(true)
+            .setAutoCancel(false)
             .setContentIntent(
                 PendingIntent
                 .getActivity(context, 0, intent,

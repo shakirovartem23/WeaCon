@@ -80,6 +80,7 @@ class WeatherActivity : AppCompatActivity() {
             PendingIntent.FLAG_IMMUTABLE
         )
 
+        val gifImage = findViewById<GifImageView>(R.id.gifImageView)
         val pager = findViewById<ViewPager2>(R.id.viewPager)
         pager.adapter = ViewPageAdapter(
             listOf(
@@ -212,25 +213,54 @@ class WeatherActivity : AppCompatActivity() {
                 )
                 progressBar.progress = isProgress
 
-                val gifImage = findViewById<GifImageView>(R.id.gifImageView)
                 val conditionNow = weather.fact.condition
                 val conViewMod = mapOf(
-                    "clear" to R.drawable.giphy__1_,
-                    "partly-cloudy" to R.drawable.giphy__2_,
-                    "cloudy" to R.drawable.giphy__3_,
-                    "overcast" to R.drawable.giphy__3_,
-                    "light-rain" to R.drawable.giphy__5_,
-                    "rain" to R.drawable.giphy__5_,
-                    "heavy-rain" to R.drawable.giphy__6_,
-                    "showers" to R.drawable.giphy__7_,
-                    "wet-snow" to R.drawable.giphy__8_,
-                    "light-snow" to R.drawable.giphy__8_,
-                    "snow" to R.drawable.giphy__9_,
-                    "snow-showers" to R.drawable.giphy__9_,
-                    "hail" to R.drawable._db5b2ce7ba03746b6b68d210941ddbd,
-                    "thunderstorm" to R.drawable._db5b2ce7ba03746b6b68d210941ddbd,
-                    "thunderstorm-with-rain" to R.drawable._db5b2ce7ba03746b6b68d210941ddbd,
-                    "thunderstorm-with-hail" to R.drawable._db5b2ce7ba03746b6b68d210941ddbd,
+                    "clear" to listOf(R.drawable.free_animated_icon_sun_11779621,
+                        R.drawable.free_animated_icon_sun_11200542,
+                        R.drawable.free_animated_icon_sun_11633770).shuffled().first(),
+                    "partly-cloudy" to listOf(R.drawable.free_animated_icon_cloud_10974080,
+                        R.drawable.free_animated_icon_clouds_6455024,
+                        R.drawable.free_animated_icon_cloudy_6455053).shuffled().first(),
+                    "cloudy" to listOf(R.drawable.free_animated_icon_cloud_10974080,
+                        R.drawable.free_animated_icon_clouds_6455024,
+                        R.drawable.free_animated_icon_cloudy_6455053).shuffled().first(),
+                    "overcast" to listOf(R.drawable.free_animated_icon_cloud_10974080,
+                        R.drawable.free_animated_icon_clouds_6455024,
+                        R.drawable.free_animated_icon_cloudy_6455053).shuffled().first(),
+                    "light-rain" to listOf(R.drawable.free_animated_icon_rain_10856306,
+                        R.drawable.free_animated_icon_rain_6455055,
+                        R.drawable.free_animated_icon_drop_6455029).shuffled().first(),
+                    "rain" to listOf(R.drawable.free_animated_icon_rain_10856306,
+                        R.drawable.free_animated_icon_rain_6455055,
+                        R.drawable.free_animated_icon_drop_6455029).shuffled().first(),
+                    "heavy-rain" to listOf(R.drawable.free_animated_icon_rain_10856306,
+                        R.drawable.free_animated_icon_rain_6455055,
+                        R.drawable.free_animated_icon_drop_6455029).shuffled().first(),
+                    "showers" to listOf(R.drawable.free_animated_icon_rain_10856306,
+                        R.drawable.free_animated_icon_rain_6455055,
+                        R.drawable.free_animated_icon_drop_6455029).shuffled().first(),
+                    "wet-snow" to listOf(R.drawable.free_animated_icon_snowflake_6455036,
+                        R.drawable.free_animated_icon_snowflake_6455056,
+                        R.drawable.free_animated_icon_snow_9671243).shuffled().first(),
+                    "light-snow" to listOf(R.drawable.free_animated_icon_snowflake_6455036,
+                        R.drawable.free_animated_icon_snowflake_6455056,
+                        R.drawable.free_animated_icon_snow_9671243).shuffled().first(),
+                    "snow" to listOf(R.drawable.free_animated_icon_snowflake_6455036,
+                        R.drawable.free_animated_icon_snowflake_6455056,
+                        R.drawable.free_animated_icon_snow_9671243).shuffled().first(),
+                    "snow-showers" to listOf(R.drawable.free_animated_icon_snowflake_6455036,
+                        R.drawable.free_animated_icon_snowflake_6455056,
+                        R.drawable.free_animated_icon_snow_9671243).shuffled().first(),
+                    "hail" to R.drawable.free_animated_icon_hailstone_6455062,
+                    "thunderstorm" to listOf(R.drawable.free_animated_icon_foggy_6454995,
+                        R.drawable.free_animated_icon_wind_power_10856310,
+                        R.drawable.free_animated_icon_thunder_6455048).shuffled().first(),
+                    "thunderstorm-with-rain" to listOf(R.drawable.free_animated_icon_foggy_6454995,
+                        R.drawable.free_animated_icon_wind_power_10856310,
+                        R.drawable.free_animated_icon_thunder_6455048).shuffled().first(),
+                    "thunderstorm-with-hail" to listOf(R.drawable.free_animated_icon_foggy_6454995,
+                        R.drawable.free_animated_icon_wind_power_10856310,
+                        R.drawable.free_animated_icon_thunder_6455048).shuffled().first(),
                 )
 
                 gifImage.setBackgroundResource(conViewMod[conditionNow]!!)
@@ -388,6 +418,7 @@ class WeatherActivity : AppCompatActivity() {
             }
         } else{
             Toast.makeText(this, "No Internet Connection!", Toast.LENGTH_LONG).show()
+            gifImage.setBackgroundResource(R.drawable.illopop_illo)
         }
 
     }
