@@ -263,6 +263,7 @@ class WeatherActivity : AppCompatActivity() {
                         R.drawable.free_animated_icon_thunder_6455048).shuffled().first(),
                 )
 
+
                 gifImage.setBackgroundResource(conViewMod[conditionNow]!!)
 
                 //Other
