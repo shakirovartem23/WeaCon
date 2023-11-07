@@ -121,6 +121,47 @@ class WeatherActivity : AppCompatActivity() {
         val dots = findViewById<DotsIndicator>(R.id.dots)
         dots.attachTo(pager)
 
+        val textAuthor = findViewById<TextView>(R.id.textAuthor)
+        val textIdea = findViewById<TextView>(R.id.textIdea)
+        val listOfThought = mapOf(
+            "The best dreams happen when you’re awake" to "Cherie Gilderbloom",
+            "Accept who you are. Unless you’re a serial killer" to "Ellen Degeneres",
+            "You can never be overdressed or overeducated" to "Oscar Wilde",
+            "Fall seven times and stand up eight" to "Japanese Proverb",
+            "Success is not the key to happiness. Happiness is the key to success" to "Herman Cain",
+            "Learning is a treasure that will follow its owner everywhere" to "Chinese Proverb",
+            "Success is the child of audacity" to "Benjamin Disraeli",
+            "To have another language is to possess a second soul" to "To have another language is to possess a second soul",
+            "We do not remember days, we remember moments" to "Cesare Pavese",
+            "Never make fun of someone who speaks broken English. It means they know another language" to "H. Jackson Brown, Jr.",
+            "Always forgive your enemies. Nothing annoys them more" to "Oscar Wilde",
+            "Only two things are infinite — the universe and human stupidity, and I’m not sure about the former" to "Albert Einstein",
+            "No longer chasing butterflies, Camila and I planted our garden so they could come to us" to "Matthew Mcconaughey",
+            "Fake It Until You Make It! Act As If You Had All The Confidence You Require Until It Becomes Your Reality" to "Brian Tracy",
+            "Take the first step in faith. You don’t have to see the whole staircase, just take the first step" to "Martin Luther King Jr",
+            "Success  is the  ability  to  go  from  failure  to  failure  without  losing  your  enthusiasm" to "Winston Churchill",
+            "Build your own dreams, or someone else will hire you to build theirs" to "Farrah Gray",
+            "The  biggest  risk  is  not  taking  any  risk.  In a  world  that’s  changing  really  quickly, the only strategy  that  is  guaranteed  to  fail  is  not  taking  risks" to "Mark Zuckerberg",
+            "If  you  love  something, set  it  free;  if  it  comes  back,  it’s  yours.  If  it  doesn’t  it  never  was" to "Richard Bach",
+            "Chop your own wood and it will warm you twice" to "Henry Ford",
+            "Our  life  is  what  our  thoughts  make  it" to "M. Aurelius",
+            "Success is one percent inspiration, ninety-nine percent perspiration" to "Thomas Edison",
+            "You miss 100% of the shots you don’t take" to "Wayne Gretzky",
+            "A man is not called wise because he talks and talks again; but if he is peaceful, loving and fearless then he is in truth called wise" to "Gautama Buddha",
+            "Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself" to "Rumi",
+            "Your time is limited, so don’t waste it living someone else’s life" to "Steve Jobs",
+            "You only live once, but if you do it right, once is enough" to "Mae West",
+            "Things change. And friends leave. Life doesn’t stop for anybody" to "Stephen Chbosky",
+            "Think like a man of action and act like a man of thought" to "Henri Bergson",
+            "If you do not have control over your mouth, you will not have control over your future" to "Germany Kent",
+            "Even if you have only a puck goat to sell, be in the middle of the fair with it" to "Irish proverb",
+            "There are two kinds of perfect people: those who are dead, and those who have not been born yet" to "Chinese proverb"
+        )
+
+        val idea = listOfThought.toList().shuffled().first()
+        textAuthor.text = idea.second
+        textIdea.text = idea.first
+
         val RPLauncher = registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ){isGranted: Boolean ->

@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">SHA.Погода</string>
+    <string name="made_based_on_napi_weather_yandex_ru">Made based on\napi.weather.yandex.ru</string>
+    <string name="c">°C</string>
+    <string name="now">Now :</string>
+    <string name="condition">Condition :</string>
+    <string name="feels_nlike">Feels\nLike :</string>
+    <string name="mor">MOR</string>
+    <string name="c1">°C</string>
+    <string name="wind_speed">Wind speed :</string>
+    <string name="m_s">m/s</string>
+    <string name="pressure">Pressure :</string>
+    <string name="pa">Pa</string>
+    <string name="cloudness">Cloudness :</string>
+    <string name="day">DAY</string>
+    <string name="c2">°C</string>
+    <string name="wind_speed1">Wind speed :</string>
+    <string name="m_s1">m/s</string>
+    <string name="pressure1">Pressure :</string>
+    <string name="pa1">Pa</string>
+    <string name="cloudness1">Cloudness :</string>
+    <string name="eve">EVE</string>
+    <string name="c3">°C</string>
+    <string name="wind_speed2">Wind speed :</string>
+    <string name="m_s2">m/s</string>
+    <string name="pressure2">Pressure :</string>
+    <string name="pa2">Pa</string>
+    <string name="cloudness2">Cloudness :</string>
+    <string name="sunrise">Sunrise :</string>
+    <string name="sunset">: sunseT</string>
+    <string name="forecast_n_for_the_next_nsix_day">Forecast\n for the next \nsix day :</string>
+    <string name="str">❝</string>
+    <string name="str1">❞</string>
+    <string name="developed_by_artem_shakirov">Developed by Artem Shakirov</string>
+    <string name="github_com_shakirovartem23_weacon">github.com/shakirovartem23/WeaCon</string>
 </resources>

@@ -24,8 +24,8 @@
             app:title="Yoshkar-Ola"
             app:expandedTitleGravity="bottom|start"
             app:collapsedTitleGravity="center_horizontal|start"
-            app:collapsedTitleTextAppearance="@style/Text_Import"
-            app:expandedTitleTextAppearance="@style/Text_Title"
+            app:collapsedTitleTextAppearance="@style/Text.Title.Text_Collapse"
+            app:expandedTitleTextAppearance="@style/Text.Title"
 
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
 
@@ -76,7 +76,7 @@
             <LinearLayout
                 android:id="@+id/linear"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:orientation="vertical">
 
@@ -96,12 +96,8 @@
                         android:padding="15dp">
 
                         <TextView
-                            android:text="Now :"
-                            android:textSize="10dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/material_dynamic_primary10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:text="@string/now"
+                            style="@style/Text.Mini"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintBottom_toTopOf="@id/textDate"
                             />
@@ -109,23 +105,13 @@
                         <TextView
                             android:id="@+id/textDate"
                             android:text=""
-                            android:textSize="30dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/material_dynamic_neutral40"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
+                            style="@style/Text.Gray.Date"
+                            tools:ignore="MissingConstraints" />
 
                         <TextView
                             android:id="@id/text2"
-                            android:text="Condition :"
-                            android:textSize="10dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/material_dynamic_primary10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:text="@string/condition"
+                            style="@style/Text.Mini"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             />
@@ -133,7 +119,7 @@
                         <TextView
                             android:id="@+id/textOvercast"
                             android:text=""
-                            android:textSize="30dp"
+                            android:textSize="30sp"
                             android:textStyle="bold"
                             android:textColor="@color/material_dynamic_neutral40"
                             android:layout_width="wrap_content"
@@ -145,47 +131,23 @@
                         <TextView
                             android:id="@+id/textC"
                             android:text=""
-                            android:textSize="150dp"
-                            android:textStyle="bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
+                            style="@style/Text.Temperature"
+                            tools:ignore="MissingConstraints" />
 
                         <TextView
-                            android:text="°C"
-                            android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/material_dynamic_neutral40"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintTop_toTopOf="@id/textC"
-                            app:layout_constraintStart_toEndOf="@id/textC"
-                            />
+                            android:text="@string/c"
+                            style="@style/Text.Gray.TempAdd"
+                            tools:ignore="MissingConstraints" />
 
                         <TextView
                             android:id="@+id/feels_like"
                             android:text=""
-                            android:textSize="36dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/material_dynamic_neutral40"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@id/textC"
-                            app:layout_constraintEnd_toStartOf="@id/textC"
-                            app:layout_constraintStart_toStartOf="parent"
-                            />
+                            style="@style/Text.Gray.FeelsLike"
+                            tools:ignore="MissingConstraints" />
 
                         <TextView
-                            android:text="Feels\nLike :"
-                            android:textSize="10dp"
-                            android:textStyle="bold"
-                            android:textColor="@color/material_dynamic_primary10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:text="@string/feels_nlike"
+                            style="@style/Text.Mini"
                             app:layout_constraintBottom_toTopOf="@id/feels_like"
                             app:layout_constraintEnd_toStartOf="@id/textC"
                             app:layout_constraintStart_toStartOf="parent"
@@ -200,7 +162,7 @@
                         android:scrollbars="none">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             >
@@ -211,9 +173,9 @@
                                 android:layout_gravity="center_vertical"
                                 android:rotation="270"
                                 android:layout_marginStart="330dp"
-                                android:text="MOR"
-                                android:textAppearance="@style/Text_Title"
-                                android:textSize="15dp"
+                                android:text="@string/mor"
+                                android:textAppearance="@style/Text.Title"
+                                android:textSize="15sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -222,7 +184,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text=""
-                                android:textSize="25dp"
+                                android:textSize="25sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -230,10 +192,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layout_marginTop="15dp"
-                                android:text="°C"
+                                android:text="@string/c1"
                                 android:textColor="@color/material_dynamic_neutral40"
-                                android:textSize="10dp"
-                                android:textStyle="bold" />
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                tools:ignore="SmallSp" />
 
                             <TextView
                                 android:id="@+id/textConMorning"
@@ -243,7 +206,7 @@
                                 android:layout_marginHorizontal="20dp"
                                 android:text=""
                                 android:textColor="@color/material_dynamic_neutral40"
-                                android:textSize="20dp"
+                                android:textSize="20sp"
                                 android:textStyle="bold" />
 
                             <LinearLayout
@@ -253,14 +216,8 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:text="Wind speed  :"
-                                    android:textColor="@color/material_dynamic_primary10"
-                                    android:textSize="10dp"
-                                    android:textStyle="bold" />
+                                    android:text="@string/wind_speed"
+                                    style="@style/Text.Mini.Value" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -275,7 +232,7 @@
                                         android:layout_marginTop="5dp"
                                         android:text=""
                                         android:textColor="@color/material_dynamic_neutral40"
-                                        android:textSize="20dp"
+                                        android:textSize="20sp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -284,10 +241,11 @@
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginStart="4dp"
                                         android:layout_marginTop="5dp"
-                                        android:text="m/s"
+                                        android:text="@string/m_s"
                                         android:textColor="@color/material_dynamic_primary10"
-                                        android:textSize="10dp"
-                                        android:textStyle="bold" />
+                                        android:textSize="10sp"
+                                        android:textStyle="bold"
+                                        tools:ignore="SmallSp" />
 
                                 </LinearLayout>
 
@@ -300,14 +258,8 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:text="Pressure  :"
-                                    android:textColor="@color/material_dynamic_primary10"
-                                    android:textSize="10dp"
-                                    android:textStyle="bold" />
+                                    android:text="@string/pressure"
+                                    style="@style/Text.Mini.Value" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -322,7 +274,7 @@
                                         android:layout_marginTop="5dp"
                                         android:text=""
                                         android:textColor="@color/material_dynamic_neutral40"
-                                        android:textSize="20dp"
+                                        android:textSize="20sp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -331,10 +283,11 @@
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginStart="4dp"
                                         android:layout_marginTop="5dp"
-                                        android:text="Pa"
+                                        android:text="@string/pa"
                                         android:textColor="@color/material_dynamic_primary10"
-                                        android:textSize="10dp"
-                                        android:textStyle="bold" />
+                                        android:textSize="10sp"
+                                        android:textStyle="bold"
+                                        tools:ignore="SmallSp" />
 
                                 </LinearLayout>
 
@@ -348,14 +301,8 @@
                                 android:layout_gravity="center_vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:text="Cloudness  :"
-                                    android:textColor="@color/material_dynamic_primary10"
-                                    android:textStyle="bold"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:textSize="10dp"/>
+                                    android:text="@string/cloudness"
+                                    style="@style/Text.Mini.Value"/>
 
                                 <TextView
                                     android:id="@+id/textCloudMorning"
@@ -367,7 +314,7 @@
                                     android:textColor="@color/material_dynamic_neutral40"
                                     android:textStyle="bold"
                                     android:layout_marginHorizontal="20dp"
-                                    android:textSize="20dp"/>
+                                    android:textSize="20sp"/>
 
                             </LinearLayout>
 
@@ -382,7 +329,7 @@
                         android:scrollbars="none">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             >
@@ -393,9 +340,9 @@
                                 android:layout_gravity="center_vertical"
                                 android:rotation="270"
                                 android:layout_marginStart="330dp"
-                                android:text="DAY"
-                                android:textAppearance="@style/Text_Title"
-                                android:textSize="15dp"
+                                android:text="@string/day"
+                                android:textAppearance="@style/Text.Title"
+                                android:textSize="15sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -404,7 +351,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text=""
-                                android:textSize="25dp"
+                                android:textSize="25sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -412,10 +359,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layout_marginTop="15dp"
-                                android:text="°C"
+                                android:text="@string/c2"
                                 android:textColor="@color/material_dynamic_neutral40"
-                                android:textSize="10dp"
-                                android:textStyle="bold" />
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                tools:ignore="SmallSp" />
 
                             <TextView
                                 android:id="@+id/textConDay"
@@ -425,7 +373,7 @@
                                 android:layout_marginHorizontal="20dp"
                                 android:text=""
                                 android:textColor="@color/material_dynamic_neutral40"
-                                android:textSize="20dp"
+                                android:textSize="20sp"
                                 android:textStyle="bold" />
 
                             <LinearLayout
@@ -435,14 +383,8 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:text="Wind speed  :"
-                                    android:textColor="@color/material_dynamic_primary10"
-                                    android:textSize="10dp"
-                                    android:textStyle="bold" />
+                                    android:text="@string/wind_speed1"
+                                    style="@style/Text.Mini.Value" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -457,7 +399,7 @@
                                         android:layout_marginTop="5dp"
                                         android:text=""
                                         android:textColor="@color/material_dynamic_neutral40"
-                                        android:textSize="20dp"
+                                        android:textSize="20sp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -466,10 +408,11 @@
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginStart="4dp"
                                         android:layout_marginTop="5dp"
-                                        android:text="m/s"
+                                        android:text="@string/m_s1"
                                         android:textColor="@color/material_dynamic_primary10"
-                                        android:textSize="10dp"
-                                        android:textStyle="bold" />
+                                        android:textSize="10sp"
+                                        android:textStyle="bold"
+                                        tools:ignore="SmallSp" />
 
                                 </LinearLayout>
 
@@ -482,14 +425,8 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:text="Pressure  :"
-                                    android:textColor="@color/material_dynamic_primary10"
-                                    android:textSize="10dp"
-                                    android:textStyle="bold" />
+                                    android:text="@string/pressure1"
+                                    style="@style/Text.Mini.Value" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -504,7 +441,7 @@
                                         android:layout_marginTop="5dp"
                                         android:text=""
                                         android:textColor="@color/material_dynamic_neutral40"
-                                        android:textSize="20dp"
+                                        android:textSize="20sp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -513,10 +450,11 @@
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginStart="4dp"
                                         android:layout_marginTop="5dp"
-                                        android:text="Pa"
+                                        android:text="@string/pa1"
                                         android:textColor="@color/material_dynamic_primary10"
-                                        android:textSize="10dp"
-                                        android:textStyle="bold" />
+                                        android:textSize="10sp"
+                                        android:textStyle="bold"
+                                        tools:ignore="SmallSp" />
 
                                 </LinearLayout>
 
@@ -530,14 +468,8 @@
                                 android:layout_gravity="center_vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:text="Cloudness  :"
-                                    android:textColor="@color/material_dynamic_primary10"
-                                    android:textStyle="bold"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:textSize="10dp"/>
+                                    android:text="@string/cloudness1"
+                                    style="@style/Text.Mini.Value"/>
 
                                 <TextView
                                     android:id="@+id/textCloudDay"
@@ -549,7 +481,7 @@
                                     android:textColor="@color/material_dynamic_neutral40"
                                     android:textStyle="bold"
                                     android:layout_marginHorizontal="20dp"
-                                    android:textSize="20dp"/>
+                                    android:textSize="20sp"/>
 
                             </LinearLayout>
 
@@ -564,7 +496,7 @@
                         android:scrollbars="none">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             >
@@ -575,9 +507,9 @@
                                 android:layout_gravity="center_vertical"
                                 android:rotation="270"
                                 android:layout_marginStart="330dp"
-                                android:text="EVE"
-                                android:textAppearance="@style/Text_Title"
-                                android:textSize="15dp"
+                                android:text="@string/eve"
+                                android:textAppearance="@style/Text.Title"
+                                android:textSize="15sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -586,7 +518,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:text=""
-                                android:textSize="25dp"
+                                android:textSize="25sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -594,10 +526,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="start"
                                 android:layout_marginTop="15dp"
-                                android:text="°C"
+                                android:text="@string/c3"
                                 android:textColor="@color/material_dynamic_neutral40"
-                                android:textSize="10dp"
-                                android:textStyle="bold" />
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                tools:ignore="SmallSp,SpUsage" />
 
                             <TextView
                                 android:id="@+id/textConEvening"
@@ -607,7 +540,7 @@
                                 android:layout_marginHorizontal="20dp"
                                 android:text=""
                                 android:textColor="@color/material_dynamic_neutral40"
-                                android:textSize="20dp"
+                                android:textSize="20sp"
                                 android:textStyle="bold" />
 
                             <LinearLayout
@@ -617,14 +550,8 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:text="Wind speed  :"
-                                    android:textColor="@color/material_dynamic_primary10"
-                                    android:textSize="10dp"
-                                    android:textStyle="bold" />
+                                    android:text="@string/wind_speed2"
+                                    style="@style/Text.Mini.Value" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -639,7 +566,7 @@
                                         android:layout_marginTop="5dp"
                                         android:text=""
                                         android:textColor="@color/material_dynamic_neutral40"
-                                        android:textSize="20dp"
+                                        android:textSize="20sp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -648,10 +575,11 @@
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginStart="4dp"
                                         android:layout_marginTop="5dp"
-                                        android:text="m/s"
+                                        android:text="@string/m_s2"
                                         android:textColor="@color/material_dynamic_primary10"
-                                        android:textSize="10dp"
-                                        android:textStyle="bold" />
+                                        android:textSize="10sp"
+                                        android:textStyle="bold"
+                                        tools:ignore="SmallSp" />
 
                                 </LinearLayout>
 
@@ -664,14 +592,8 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:text="Pressure  :"
-                                    android:textColor="@color/material_dynamic_primary10"
-                                    android:textSize="10dp"
-                                    android:textStyle="bold" />
+                                    android:text="@string/pressure2"
+                                    style="@style/Text.Mini.Value" />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -686,7 +608,7 @@
                                         android:layout_marginTop="5dp"
                                         android:text=""
                                         android:textColor="@color/material_dynamic_neutral40"
-                                        android:textSize="20dp"
+                                        android:textSize="20sp"
                                         android:textStyle="bold" />
 
                                     <TextView
@@ -695,10 +617,11 @@
                                         android:layout_gravity="center_vertical"
                                         android:layout_marginStart="4dp"
                                         android:layout_marginTop="5dp"
-                                        android:text="Pa"
+                                        android:text="@string/pa2"
                                         android:textColor="@color/material_dynamic_primary10"
-                                        android:textSize="10dp"
-                                        android:textStyle="bold" />
+                                        android:textSize="10sp"
+                                        android:textStyle="bold"
+                                        tools:ignore="SmallSp" />
 
                                 </LinearLayout>
 
@@ -712,14 +635,8 @@
                                 android:layout_gravity="center_vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal"
-                                    android:text="Cloudness  :"
-                                    android:textColor="@color/material_dynamic_primary10"
-                                    android:textStyle="bold"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:textSize="10dp"/>
+                                    android:text="@string/cloudness2"
+                                    style="@style/Text.Mini.Value"/>
 
                                 <TextView
                                     android:id="@+id/textCloudEvening"
@@ -731,7 +648,7 @@
                                     android:textColor="@color/material_dynamic_neutral40"
                                     android:textStyle="bold"
                                     android:layout_marginHorizontal="20dp"
-                                    android:textSize="20dp"/>
+                                    android:textSize="20sp"/>
 
                             </LinearLayout>
 
@@ -757,8 +674,8 @@
                         android:layout_gravity="center_horizontal">
 
                         <TextView
-                            android:text="Sunrise :"
-                            android:textSize="13dp"
+                            android:text="@string/sunrise"
+                            android:textSize="13sp"
                             android:textStyle="bold"
                             android:textColor="@color/material_dynamic_primary10"
                             android:layout_width="wrap_content"
@@ -773,14 +690,15 @@
                             android:layout_height="wrap_content"
                             android:text=""
                             android:textColor="@color/material_dynamic_neutral40"
-                            android:textSize="25dp"
+                            android:textSize="25sp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="TooManyViews" />
 
                         <TextView
-                            android:text=": sunseT"
-                            android:textSize="13dp"
+                            android:text="@string/sunset"
+                            android:textSize="13sp"
                             android:textStyle="bold"
                             android:textColor="@color/material_dynamic_primary10"
                             android:layout_width="wrap_content"
@@ -796,9 +714,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:gravity="center"
-                        android:text="Forecast\n for the next \nsix day :"
+                        android:text="@string/forecast_n_for_the_next_nsix_day"
                         android:textStyle="bold"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         android:textColor="@color/material_dynamic_neutral_variant20"
                         tools:targetApi="s" />
 
@@ -835,7 +753,7 @@
                         app:dotsSpacing="2dp"
                         app:dotsWidthFactor="2.5"
                         app:selectedDotColor="#808080"
-                        />
+                        tools:ignore="UnusedAttribute" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -849,35 +767,80 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Developed by Artem Shakirov"
-                            android:gravity="center_horizontal|top"
-                            android:textColor="@color/material_dynamic_primary10"
-                            android:textSize="10dp"
+                            android:text="@string/str"
+                            android:gravity="start|bottom"
+                            android:textColor="@color/material_dynamic_neutral70"
+                            android:textSize="45sp"
                             android:textStyle="bold"
+                            android:layout_marginEnd="25dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="-25dp"
+                            />
+
+                        <TextView
+                            android:id="@+id/textIdea"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="25dp"
+                            android:gravity="center_horizontal|top"
+                            android:text=""
+                            android:textColor="@color/purple_200"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textAuthor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:gravity="end"
+                            android:textColor="@color/purple_700"
+                            android:textSize="8sp"
+                            android:textStyle="bold"
+                            android:layout_marginEnd="25dp"
+                            android:layout_marginTop="-10dp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str1"
+                            android:gravity="end|top"
+                            android:textColor="@color/material_dynamic_neutral70"
+                            android:textSize="45sp"
+                            android:textStyle="bold"
+                            android:layout_marginEnd="25dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="60dp"
+                            />
+
+                        <TextView
+                            android:text="@string/developed_by_artem_shakirov"
+                            style="@style/Text.Mini.Value"
                             android:layout_margin="5dp"
                             />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:text="github.com/shakirovartem23/WeaCon"
+                            android:text="@string/github_com_shakirovartem23_weacon"
                             android:gravity="center"
                             android:textColor="@color/material_dynamic_neutral30"
-                            android:textSize="10dp"
+                            android:textSize="10sp"
                             android:textStyle="bold"
                             android:layout_margin="5dp"
-                            />
+                            tools:ignore="SmallSp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:text="Made based on\napi.weather.yandex.ru"
+                            android:text="@string/made_based_on_napi_weather_yandex_ru"
                             android:gravity="center_horizontal|bottom"
                             android:textColor="@color/material_dynamic_neutral60"
-                            android:textSize="10dp"
+                            android:textSize="10sp"
                             android:textStyle="bold"
                             android:layout_margin="5dp"
-                            />
+                            tools:ignore="SmallSp" />
 
                     </LinearLayout>
 
