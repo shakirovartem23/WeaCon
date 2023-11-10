@@ -757,10 +757,6 @@
                         app:selectedDotColor="#808080"
                         tools:ignore="UnusedAttribute" />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -774,7 +770,7 @@
                             android:textColor="@color/material_dynamic_neutral70"
                             android:textSize="45sp"
                             android:textStyle="bold"
-                            android:layout_marginEnd="25dp"
+                            android:layout_marginStart="25dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="-25dp"
                             />
@@ -845,8 +841,6 @@
                             tools:ignore="SmallSp" />
 
                     </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
